@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Context path="/banktastic-banco-api">
-  <Resource driverClassName="com.mysql.jdbc.Driver" maxActive="5" maxIdle="4" maxWait="1" name="jdbc/MySQLDS" password="banco" type="javax.sql.DataSource" url="jdbc:mysql://localhost:3306/banco" username="banco" validationQuery="SELECT 1 FROM dual"/>
-</Context>
+<Resource driverClassName="com.mysql.jdbc.Driver" 
+
+        maxActive="5" 
+        maxIdle="4" 
+        maxWait="1" 
+
+        name="jdbc/MySQLDS" 
+        password="banco" 
+
+        type="javax.sql.DataSource" 
+        url="jdbc:mysql://localhost:3306/banco" 
+        username="banco" 
+
+        validationQuery="SELECT 1 FROM dual"/>
+           
+    </Context>
