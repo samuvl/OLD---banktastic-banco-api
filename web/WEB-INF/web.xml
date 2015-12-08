@@ -42,9 +42,9 @@
         <url-pattern>/api/*</url-pattern>
     </servlet-mapping>
    
-   <!-- ************************************ -->
-   <!-- ...........Filtro de Seguridad -->
-   <!-- ************************************ -->
+    <!-- ************************************ -->
+    <!-- ...........Filtro de Seguridad -->
+    <!-- ************************************ -->
     <filter>
         <filter-name>Security</filter-name>
         <filter-class>com.fpmislata.banco.presentacion.security.FilterImplSecurity</filter-class>
@@ -54,4 +54,4 @@
         <url-pattern>/api/*</url-pattern>
     </filter-mapping>
     
-</web-app>
+    </web-app>
