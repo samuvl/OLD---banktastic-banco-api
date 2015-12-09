@@ -35,7 +35,7 @@
         
         <delete dir="../banco"/>
         <echo> -----------------Clonando... </echo>
-        <git dir="../" command="clone" options="ssh://566189470c1e66d3b400028b@banco-samuvl.rhcloud.com/~/git/banco.git/"  />
+        <git dir="../" command="clone" options="ssh://56680d422d5271599e000054@banco-samuvl.rhcloud.com/~/git/banco.git/"  />
         
         <echo> -----------------Moviendo ROOT.war a openshift repositorio...</echo>
         <move file="./dist/ROOT.war" tofile="../banco/webapps/ROOT.war"/>
@@ -44,7 +44,6 @@
         <git dir="../banco" command="commit" options="-am comentarioDeploy" />
         <git dir="../banco" command="push" />
         
-
     </target>
     
     <target name="distProduccion" depends="-enable-produccion, dist" > 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Context path="/banktastic-banco-api">
-
+<!--
     <Resource name="jdbc/MySQLDS"
            url="jdbc:mysql://56618ac37628e1985100004e-samuvl.rhcloud.com:52051/banco"
            
@@ -15,8 +15,8 @@
            maxIdle="5"
            maxWait="10000"
     />
-    
-    <!--<Resource driverClassName="com.mysql.jdbc.Driver" 
+     -->
+    <Resource driverClassName="com.mysql.jdbc.Driver" 
 
         maxActive="5" 
         maxIdle="4" 
@@ -30,5 +30,5 @@
         username="banco" 
 
         validationQuery="SELECT 1 FROM dual"/>
-           -->
+          
  </Context>
