@@ -33,8 +33,8 @@
         <move file="./dist/banktastic-banco-api.war" tofile="./dist/ROOT.war"/>
         <copy file="./dist/ROOT.war" tofile="../banco/webapps/ROOT.war"/>
         
-        <!--<delete dir="../banco"/>
-        <git dir="../" command="clone" args="ssh://566189470c1e66d3b400028b@banco-samuvl.rhcloud.com/~/git/banco.git/" />-->
+        <delete dir="../banco"/>
+        <git dir="../" command="clone" args="ssh://566189470c1e66d3b400028b@banco-samuvl.rhcloud.com/~/git/banco.git/" />
         <git dir="../banco" command="add" args="*" />
         <git dir="../banco" command="commit" args="-am 'deploy'" />
         <git dir="../banco" command="push" />
