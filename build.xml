@@ -31,12 +31,16 @@
     <target name="desplegarProduccion" depends="distProduccion" > 
         <echo> Desplegando... </echo>
         <move file="./dist/banktastic-banco-api.war" tofile="./dist/ROOT.war"/>
-        <copy file="./dist/ROOT.war" tofile="../banco/webapps/ROOT.war"/>
+        
         
         <delete dir="../banco"/>
-        <git dir="../" command="clone" args="ssh://566189470c1e66d3b400028b@banco-samuvl.rhcloud.com/~/git/banco.git/" />
-        <git dir="../banco" command="add" args="*" />
-        <git dir="../banco" command="commit" args="-am 'deploy'" />
+        <echo> Clonando... </echo>
+        <git dir="../" command="clone" options="ssh://566189470c1e66d3b400028b@banco-samuvl.rhcloud.com/~/git/banco.git/"  />
+        
+        <echo> Add, Commit, Push...</echo>
+        <copy file="./dist/ROOT.war" tofile="../banco/webapps/ROOT.war"/>
+        <git dir="../banco" command="add" options="*" />
+        <git dir="../banco" command="commit" options="-am 'deploy'" />
         <git dir="../banco" command="push" />
         
 
