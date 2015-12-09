@@ -11,9 +11,35 @@
     <description>Builds, tests, and runs the project banco-api.</description>    
     <import file="nbproject/build-impl.xml"/>
 
-    <target name="desplegarProduccion" depends="-enable-produccion, dist" > 
+    <macrodef name="git">
+        <!-- https://github.com/FrancisVarga/ant-git-macros/blob/master/LICENSE.md -->
+        <attribute name="command" />
+        <attribute name="options" default="" />
+        <attribute name="dir" default="" />
+        <attribute name="failerror" default="true" />
+        <element name="args" optional="true" />
+        <sequential>
+            <echo message="git dir @{dir}" />
+            <echo message="git @{command} @{options}" />
+            <exec executable="git" dir="@{dir}" failonerror="@{failerror}">
+                <arg line="@{command} @{options}" />
+                <args />
+            </exec>
+        </sequential>
+    </macrodef>        
+    
+    <target name="desplegarProduccion" depends="distProduccion" > 
         <echo> Desplegando... </echo>
-        <deploy url="http://172.16.205.109/manager/text" username="admin" password="admin" path="/pruebas" war="./dist/pruebas.war"/>   
+        <move file="./dist/banktastic-banco-api.war" tofile="./dist/ROOT.war"/>
+        <copy file="./dist/ROOT.war" tofile="../banco/webapps/ROOT.war"/>
+        
+        <!--<delete dir="../banco"/>
+        <git dir="../" command="clone" args="ssh://566189470c1e66d3b400028b@banco-samuvl.rhcloud.com/~/git/banco.git/" />-->
+        <git dir="../banco" command="add" args="*" />
+        <git dir="../banco" command="commit" args="-am 'deploy'" />
+        <git dir="../banco" command="push" />
+        
+
     </target>
     
     <target name="distProduccion" depends="-enable-produccion, dist" > 
