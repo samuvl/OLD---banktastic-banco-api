@@ -31,33 +31,25 @@
     <target name="desplegarProduccion" depends="distProduccion" > 
         <echo> -------------------------------------------------------- </echo>
         <echo> ---------------------- Desplegando---------------------- </echo>
-        <echo> -------------------------------------------------------- </echo>
         <move file="./dist/banktastic-banco-api.war" tofile="./dist/ROOT.war"/>
         
         <echo> -------------------------------------------------------- </echo>
         <echo> ---------------------- Borrando repo local---------------------- </echo>
-        <echo> -------------------------------------------------------- </echo>
         <delete dir="../banco"/>
         
         <echo> -------------------------------------------------------- </echo>
         <echo> ---------------------- Clonando---------------------- </echo>
-        <echo> -------------------------------------------------------- </echo>
         <git dir="../" command="clone" options="ssh://56680fee7628e18b5f00012f@banco-samuvl.rhcloud.com/~/git/banco.git/"  />
 
         <echo> -------------------------------------------------------- </echo>
         <echo> -----------------Moviendo ROOT.war a openshift repositorio----------------------</echo>
-        <echo> -------------------------------------------------------- </echo>
         <move file="./dist/ROOT.war" tofile="../banco/webapps/ROOT.war"/>
         
         <echo> -------------------------------------------------------- </echo>
         <echo> ---------------------- Add, Commit, Push----------------------</echo>
-        <echo> -------------------------------------------------------- </echo>
         <git dir="../banco" command="add" options="*" />
         <git dir="../banco" command="commit" options="-am comentarioDeploy" />
         <git dir="../banco" command="push" />
-        
-        <echo> -------------------------------------------------------- </echo>
-        <echo> -------------------------------------------------------- </echo>
 
     </target>
     
