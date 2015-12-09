@@ -16,6 +16,9 @@
         <deploy url="http://172.16.205.109/manager/text" username="admin" password="admin" path="/pruebas" war="./dist/pruebas.war"/>   
     </target>
     
+    <target name="distProduccion" depends="-enable-produccion, dist" > 
+    </target>
+    
     <property name="libs.CopyLibs.classpath" value="ant/lib/org-netbeans-modules-java-j2seproject-copylibstask.jar" />
     <property name="j2ee.server.home" value="ant" />
     
