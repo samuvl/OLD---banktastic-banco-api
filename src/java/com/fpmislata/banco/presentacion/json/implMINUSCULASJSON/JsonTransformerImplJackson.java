@@ -1,4 +1,4 @@
-package com.fpmislata.banco.presentacion.json.Impl;
+package com.fpmislata.banco.presentacion.json.implMINUSCULASJSON;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
