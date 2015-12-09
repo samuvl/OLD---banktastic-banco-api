@@ -29,17 +29,17 @@
     </macrodef>        
     
     <target name="desplegarProduccion" depends="distProduccion" > 
-        <echo> -----------------Desplegando... </echo>
+        <echo> -----------------Desplegando---------------------- </echo>
         <move file="./dist/banktastic-banco-api.war" tofile="./dist/ROOT.war"/>
         
         
         <delete dir="../banco"/>
-        <echo> -----------------Clonando... </echo>
+        <echo> -----------------Clonando---------------------- </echo>
         <git dir="../" command="clone" options="ssh://56680d422d5271599e000054@banco-samuvl.rhcloud.com/~/git/banco.git/"  />
         
-        <echo> -----------------Moviendo ROOT.war a openshift repositorio...</echo>
+        <echo> -----------------Moviendo ROOT.war a openshift repositorio----------------------</echo>
         <move file="./dist/ROOT.war" tofile="../banco/webapps/ROOT.war"/>
-        <echo> -----------------Add, Commit, Push...</echo>
+        <echo> -----------------Add, Commit, Push----------------------</echo>
         <git dir="../banco" command="add" options="*" />
         <git dir="../banco" command="commit" options="-am comentarioDeploy" />
         <git dir="../banco" command="push" />
