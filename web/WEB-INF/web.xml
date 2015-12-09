@@ -24,10 +24,10 @@
     
     <!-- ************************************ -->
     <!--Database Migration Context -->
-    <!-- ************************************ 
+    <!-- ************************************ -->
     <listener>
         <listener-class>com.fpmislata.banco.presentacion.database.DatabaseMigrateContextListener</listener-class>
-    </listener>-->
+    </listener>
     
     <!-- ************************************ -->
     <!--Dispatcher Servlet controladores.... -->
