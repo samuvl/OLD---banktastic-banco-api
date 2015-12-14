@@ -29,7 +29,7 @@ public class LoginController {
             HttpSession httpSession = httpServletRequest.getSession();
             
             Usuario usuario = new Usuario("Juan", passwordManager.encrypt("password"));
-            usuario.setRol(Rol.Administrador);
+            usuario.setRol(Rol.administrador);
             
             WebSession webSession = new WebSession(usuario, new Date());
             httpSession.setAttribute("webSession", webSession);
