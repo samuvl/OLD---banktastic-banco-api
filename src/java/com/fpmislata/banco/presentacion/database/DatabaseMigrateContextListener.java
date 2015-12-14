@@ -1,5 +1,6 @@
 package com.fpmislata.banco.presentacion.database;
 
+import com.fpmislata.banco.persistence.dao.implementacion.hibernate.HibernateUtil;
 import com.fpmislata.banco.persistence.migration.DatabaseMigration;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
@@ -20,11 +21,14 @@ public class DatabaseMigrateContextListener implements ServletContextListener {
         AutowireCapableBeanFactory autowireCapableBeanFactory = webApplicationContext.getAutowireCapableBeanFactory();
         autowireCapableBeanFactory.autowireBean(this);
 
-       databaseMigration.migrate();
+        databaseMigration.migrate();
+        HibernateUtil.buildSessionFactory();
     }
 
     @Override
     public void contextDestroyed(ServletContextEvent sce) {
-       System.out.println("Destruidoooooo");
+
+        HibernateUtil.closeSessionFactory();
+        System.out.println("Destruidoooooo");
     }
 }
