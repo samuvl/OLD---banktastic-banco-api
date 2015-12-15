@@ -72,7 +72,7 @@ public class UsuarioController {
         try {
             Usuario usuario = (Usuario) jsonTransformer.jsonToObject(jsonEntrada, Usuario.class);
             usuarioService.insert(usuario);
-
+            System.out.println(jsonEntrada);
             httpServletResponse.setStatus(HttpServletResponse.SC_OK);
             httpServletResponse.setContentType("application/json; charset=UTF-8");
             httpServletResponse.getWriter().println(jsonTransformer.objectToJson(usuario));
