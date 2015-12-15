@@ -1,8 +1,6 @@
 package com.fpmislata.banco.presentacion.security;
 
-import com.fpmislata.banco.business.domain.Rol;
 import com.fpmislata.banco.business.domain.Usuario;
-import com.fpmislata.banco.presentacion.controllers.EntidadBancariaController;
 import com.fpmislata.banco.security.Authorization;
 import java.io.IOException;
 import java.util.logging.Level;
